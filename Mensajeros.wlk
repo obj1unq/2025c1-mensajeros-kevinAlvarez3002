@@ -15,60 +15,79 @@ object puenteDeBrooklin {
 object matrix {
   method puedellegar(
     mensajero
-  ) = mensajero.llamar() && mensajero.paquetePagado()
+  ) = mensajero.llamar() && mensajero.paquete().Pagado()
 }
 
 object chuckNorris {
-  method peso() { 
-    return 900
-    }
+  var paqueteAEntregar = paquete
   
-  method llamar() {
-    return true
+  method paquete() = paqueteAEntregar
+  
+  method paquete(_paquete) {
+    paqueteAEntregar = _paquete
   }
+  
+  method peso() = 900
+  
+  method llamar() = true
 }
-object neo {
-  var credito =100
-  
-  method peso(){
-    return 0
-  }
 
+object neo {
+  var credito = 100
+  var paqueteAEntregar = paquete
+  
+  method paquete() = paqueteAEntregar
+  
+  method paquete(_paquete) {
+    paqueteAEntregar = _paquete
+  }
+  
+  method peso() = 0
+  
   method llamar() {
     return credito >= 0
-     credito -= 1.min(credito)
-    }
+    credito -= 1.min(credito)
+  }
 }
+
 object lincoln {
   var vehiculo = vicicleta
   var pesoPropio = 80
-  method vehiculo() = vehiculo
-  method vehidulo (_vehiculo){
-    vehiculo = _vehiculo
-  }
-  method pesoPropio(_pesoPropio){
-    pesoPropio = _pesoPropio
-  }
-  method peso(){
-    return pesoPropio + vehiculo.peso()
-  }
-  method llamar() {
-    return false
+  var paqueteAEntregar = paquete
+  
+  method paquete() = paqueteAEntregar
+  
+  method paquete(_paquete) {
+    paqueteAEntregar = _paquete
   }
   
-}
-object vicicleta{
-  method peso(){
-    return 10
+  method vehiculo() = vehiculo
+  
+  method vehidulo(_vehiculo) {
+    vehiculo = _vehiculo
   }
+  
+  method pesoPropio(_pesoPropio) {
+    pesoPropio = _pesoPropio
+  }
+  
+  method peso() = pesoPropio + vehiculo.peso()
+  
+  method llamar() = false
 }
-object camion{
+
+object vicicleta {
+  method peso() = 10
+}
+
+object camion {
   var acoplados = 0
-  method acoplados (_acoplados){
+  
+  method acoplados(_acoplados) {
     acoplados = _acoplados
   }
-  method acoplados() =acoplados
-  method peso(){
-    return 500+(acoplados*500)
-  }
+  
+  method acoplados() = acoplados
+  
+  method peso() = 500 + (acoplados * 500)
 }
