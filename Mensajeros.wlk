@@ -50,7 +50,7 @@ object lincoln {
     pesoPropio = _pesoPropio
   }
   method peso(){
-    return pesoPropio + vehiculo.peso
+    return pesoPropio + vehiculo.peso()
   }
   method llamar() {
     return false
@@ -64,9 +64,11 @@ object vicicleta{
 }
 object camion{
   var acoplados = 0
-  method acoplados (_acoplaados){
-    acoplados =_acoplados
+  method acoplados (_acoplados){
+    acoplados = _acoplados
   }
   method acoplados() =acoplados
-  method peso
+  method peso(){
+    return 500+(acoplados*500)
+  }
 }
