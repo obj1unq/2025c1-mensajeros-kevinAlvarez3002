@@ -9,11 +9,11 @@ object paquete {
 }
 
 object puenteDeBrooklin {
-  method puedellegar(mensajero) = mensajero.peso() < 1000
+  method puedeLlegar(mensajero) = mensajero.peso() < 1000
 }
 
 object matrix {
-  method puedellegar(
+  method puedeLlegar(
     mensajero
   ) = mensajero.llamar() && mensajero.paquete().Pagado()
 }
