@@ -1,12 +1,13 @@
 object paquete {
-  var pagado = true
+  //atributos
+  var pagado = true //metodos de pagado
   
   method pagado() = pagado
   
   method pagado(_pagado) {
     pagado = _pagado
   }
-}
+} //destinos
 
 object puenteDeBrooklin {
   method puedeLlegar(mensajero) = mensajero.peso() < 1000
@@ -15,79 +16,100 @@ object puenteDeBrooklin {
 object matrix {
   method puedeLlegar(
     mensajero
-  ) = mensajero.llamar() && mensajero.paquete().Pagado()
-}
+  ) = mensajero.puedeLlamar() && mensajero.paquete().Pagado()
+} //repartidores
 
 object chuckNorris {
+  //atributos
+  const peso = 900
   var paqueteAEntregar = paquete
   
+  //metodos de paquete
   method paquete() = paqueteAEntregar
   
   method paquete(_paquete) {
     paqueteAEntregar = _paquete
   }
   
-  method peso() = 900
+  //metodos de peso
+  method peso() = peso
   
-  method llamar() = true
+  //metodos de puedeLlamar
+  method puedeLlamar() = true
 }
 
 object neo {
+  //atributos
   var credito = 100
+  const peso = 0
   var paqueteAEntregar = paquete
   
+  //metodos de credito
+  method credito(_credito) {
+    credito = _credito
+  }
+  
+  //metodos de peso 
+  method peso() = peso
+  
+  //metodos de paquete
   method paquete() = paqueteAEntregar
   
   method paquete(_paquete) {
     paqueteAEntregar = _paquete
   }
   
-  method peso() = 0
-  
-  method llamar() {
-    return credito >= 0
-    credito -= 1.min(credito)
-  }
+  //metodos de puedeLlamar
+  method puedeLlamar() = credito >= 0
 }
 
 object lincoln {
+  //atributos
   var vehiculo = vicicleta
   var pesoPropio = 80
   var paqueteAEntregar = paquete
   
+  //metodos de paquete
   method paquete() = paqueteAEntregar
   
   method paquete(_paquete) {
     paqueteAEntregar = _paquete
   }
   
+  //metodos de vehiculo
   method vehiculo() = vehiculo
   
   method vehidulo(_vehiculo) {
     vehiculo = _vehiculo
   }
   
+  //metodos de peso
   method pesoPropio(_pesoPropio) {
     pesoPropio = _pesoPropio
   }
   
   method peso() = pesoPropio + vehiculo.peso()
   
-  method llamar() = false
-}
+  //metodos de puedeLlamar
+  method puedeLlamar() = false
+} //vehiculos
 
 object vicicleta {
   method peso() = 10
 }
 
 object camion {
+  //atributos
+  const pesoVehiculo = 500
   var acoplados = 0
   
+  //metodos de acoplados
   method acoplados(_acoplados) {
     acoplados = _acoplados
   }
   
   method acoplados() = acoplados
   
-  method peso() = 500 + (acoplados * 500)
+  //metodo de peso
+  method peso() = pesoVehiculo + (acoplados * 500)
 }
