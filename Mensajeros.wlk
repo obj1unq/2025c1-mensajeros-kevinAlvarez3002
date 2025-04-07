@@ -10,13 +10,13 @@ object paquete {
 } //destinos
 
 object puenteDeBrooklin {
-  method puedeLlegar(mensajero) = mensajero.peso() < 1000
+  method puedeLlegar(mensajero) = mensajero.peso() < 1000 && mensajero.paquete().pagado()
 }
 
 object matrix {
   method puedeLlegar(
     mensajero
-  ) = mensajero.puedeLlamar() && mensajero.paquete().Pagado()
+  ) = mensajero.puedeLlamar() && mensajero.paquete().pagado()
 } //repartidores
 
 object chuckNorris {
